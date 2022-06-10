@@ -1,0 +1,29 @@
+<h1 class="text-center mt-3 mb-4 text-decoration-underline">Listado de Usuarios</h1>
+<div class="container">
+  <div class="card mb-2 border-dark" *ngFor="let user of userList">
+    <div class="card-block row ">
+      <div class="card-body row align-items-center">
+        <div class="col">
+          <h6 class="card-subtitle text-muted">Username</h6>
+          <p class="card-text" >{{user.id}}</p>
+        </div>
+        <div class="col">
+          <h6 class="card-subtitle text-muted">Name</h6>
+          <p class="card-text" >{{user.name}}</p>
+        </div>
+        <div class="col">
+          <h6 class="card-subtitle text-muted">Surname</h6>
+          <p class="card-text" >{{user.surname}}</p>
+        </div>
+        <div class="col">
+          <h6 class="card-subtitle text-muted">E-mail</h6>
+          <p class="card-text">{{user.email}}</p>
+        </div>
+        <div class="col">
+          <h6 class="card-subtitle text-muted">Password</h6>
+          <p class="card-text" >{{user.password}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

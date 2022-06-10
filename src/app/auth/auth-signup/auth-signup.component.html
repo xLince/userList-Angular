@@ -1,0 +1,52 @@
+<div class="auth-form container mt-5  pb-4 ">
+  <form>
+    <div class="row mt-3">
+      <div class="col-sm-1">
+        <button type="button" class="btn btn-link arrow" [routerLink]="['']" ><span class='bi bi-arrow-left text-white'></span></button>
+      </div>
+      <div class="col-sm-3"></div>
+      <div class="col-sm-8 ps-4">
+        <h1 class="h2 mb-4 text-white fw-normal">Registrarse</h1>
+      </div>
+    </div>
+
+    <div class="row g-3 mb-4">
+      <div class="col-sm-6">
+        <label for="firstName" class="form-label text-white">Nombre</label>
+        <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+        <div class="invalid-feedback">
+          Un nombre válido es requerido.
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <label for="lastName" class="form-label text-white">Apellido</label>
+        <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+        <div class="invalid-feedback">
+          Un apellido válido es requerido.
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label for="email" class="form-label text-white">Correo electrónico</label>
+      <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+      <div class="invalid-feedback">
+        Por favor entra un correo electrónico válido.
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label for="address" class="form-label text-white">Contraseña</label>
+      <input type="password" class="form-control" id="address"  required>
+      <div class="invalid-feedback">
+        Una contraseña es requerida
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button class="w-100 btn btn-primary btn-lg mt-4" type="submit">Registrarse</button>
+    </div>
+
+  </form>
+</div>
+
