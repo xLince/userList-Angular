@@ -12,36 +12,24 @@ export class UserListComponent implements OnInit, OnDestroy {
 
   public userList: IUser[];
   private subscription: Subscription;
+  public currentEmail:string;
 
   constructor(private userService: UserService) {
-    this.userList = [{
-      id: "1",
-      name: "Roronoa",
-      surname: "Zoro",
-      email: "example@gmail.com",
-      password: "abn43cjt"
-    },
-    {
-      id: "2",
-      name: "Vinsmoke",
-      surname: "Sanji",
-      email: "example@gmail.com",
-      password: "abn43cjt"
-    }];
+    this.userList = [];
+    this.currentEmail = "";
     this.subscription = new Subscription;
   }
 
   ngOnInit(): void {
-    /**Cuando sepa conectarme a la API**/
-  /*this.subscription = this.userService.obtainUsers('http://51.38.51.187:5050/api/v1/users')
-    .subscribe((data: IUser[]) => {
-      this.userList = data;
-    })*/
+    this.subscription = this.userService.obtainUsers('http://51.38.51.187:5050/api/v1/users').subscribe((data) => {
+      this.userList = data.items;
+      this.currentEmail = this.userService.getEmail();
+    })
+
   }
 
   ngOnDestroy() {
-    /**Cuando sepa conectarme a la API**/
-    // this.subscription.unsubscribe();
+    this.subscription.unsubscribe();
   }
 
 }
