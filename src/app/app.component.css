@@ -3,3 +3,12 @@
   background-color: #003a66;
   border: 1px solid black;
 }
+
+.error {
+  color: red;
+}
+
+.correct {
+  color: green;
+}
+

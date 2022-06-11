@@ -11,6 +11,8 @@ import {NgForm} from "@angular/forms";
 export class AuthSignupComponent implements OnInit {
 
   public user: IUser;
+  public error = false;
+  public successful = false;
 
   constructor(private userService: UserService) {
     this.user = {
@@ -26,7 +28,13 @@ export class AuthSignupComponent implements OnInit {
   }
 
   onSubmit(userForm :NgForm): void{
-    this.userService.registerUser(this.user).subscribe(data => console.log(data));
+    this.userService.registerUser(this.user).subscribe(() => {
+      this.successful= true;
+      this.error= false;
+    },() => {
+      this.successful= false;
+      this.error= true;
+    });
     userForm.reset()
   }
 

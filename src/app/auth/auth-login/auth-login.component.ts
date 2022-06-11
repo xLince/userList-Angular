@@ -12,6 +12,7 @@ import { Router} from "@angular/router";
 export class AuthLoginComponent implements OnInit {
 
   public user:ILoginUser;
+  public error = false;
   private token;
 
   constructor(private userService: UserService,private router: Router) {
@@ -34,6 +35,8 @@ export class AuthLoginComponent implements OnInit {
       this.token = (<JwtTokenDto>data);
       this.userService.setToken(this.token);
       this.router.navigate(['/user']);
+    },() => {
+      this.error= true;
     });
   }
 

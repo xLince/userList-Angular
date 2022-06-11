@@ -1,21 +1,24 @@
 <h1 class="text-center mt-3 mb-4 text-decoration-underline">Listado de Usuarios</h1>
 <div class="container">
-  <div class="card mb-2 border-dark" *ngFor="let user of userList" >
-    <div class="card-block row"><!--[ngClass]="{'you': user.email === currentEmail}">-->
-      <div class="card-body row align-items-center">
-        <div class="col">
-          <h6 class="card-subtitle text-muted">Name</h6>
-          <p class="card-text" >{{user.name}}</p>
+  <div class="card cardColor mb-2 border-dark" *ngFor="let user of userList | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize" >
+    <div class="card-block row">
+      <div class="card-body row align-items-center ">
+        <div class="col ps-4">
+          <h6 class="card-subtitle text-muted subtitle">Name</h6>
+          <p class="card-text text-white">{{user.name}}</p>
         </div>
         <div class="col">
-          <h6 class="card-subtitle text-muted">Surname</h6>
-          <p class="card-text" >{{user.surname}}</p>
+          <h6 class="card-subtitle text-muted subtitle">Surname</h6>
+          <p class="card-text text-white">{{user.surname}}</p>
         </div>
         <div class="col">
-          <h6 class="card-subtitle text-muted">E-mail</h6>
-          <p class="card-text">{{user.email}}</p>
+          <h6 class="card-subtitle text-muted subtitle ">E-mail</h6>
+          <p class="card-text text-white">{{user.email}}</p>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<ngb-pagination class="d-flex justify-content-center"
+                [(page)]="page" [pageSize]="pageSize" [collectionSize]="totalUsers"></ngb-pagination>

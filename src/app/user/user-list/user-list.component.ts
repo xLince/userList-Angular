@@ -10,22 +10,22 @@ import {Subscription} from "rxjs";
 })
 export class UserListComponent implements OnInit, OnDestroy {
 
-  public userList: IUser[];
   private subscription: Subscription;
-  public currentEmail:string;
+  public userList: IUser[];
+  public pageSize = 5;
+  public page = 1;
+  public totalUsers = 0;
 
   constructor(private userService: UserService) {
-    this.userList = [];
-    this.currentEmail = "";
     this.subscription = new Subscription;
+    this.userList = [];
   }
 
   ngOnInit(): void {
     this.subscription = this.userService.obtainUsers('http://51.38.51.187:5050/api/v1/users').subscribe((data) => {
-      this.userList = data.items;
-      this.currentEmail = this.userService.getEmail();
+      this.userList = data.items.sort((a, b) => a.name.localeCompare(b.name));
+      this.totalUsers = data.count;
     })
-
   }
 
   ngOnDestroy() {

@@ -1,3 +1,7 @@
-.you {
-  background-color: red;
+.cardColor {
+  background-color: #444444;
+}
+.cardColor .subtitle {
+  color: #999999!important;
+  font-weight: bold;
 }

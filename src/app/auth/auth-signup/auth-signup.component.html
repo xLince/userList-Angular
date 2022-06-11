@@ -69,7 +69,12 @@
           Una contraseña es requerida
         </div>
       </div>
-
+      <div class="text-center" *ngIf="error">
+        <p class="error">Ya existe un usuario con estas credenciales </p>
+      </div>
+      <div class="text-center" *ngIf="successful">
+        <p class="correct">Se ha registrado el usuario correctamente </p>
+      </div>
       <div class="text-center">
         <button class="w-100 btn btn-primary btn-lg mt-4" id="submit" type="submit" [disabled]="!userForm.form.valid">Registrarse</button>
       </div>
