@@ -4,6 +4,7 @@
       <img class="mb-4 mt-4" src="https://i.gyazo.com/a715fdf79af75f49a15036f22026c4a5.png" alt="Hiberus">
       <h1 class="h2 mb-4 text-white fw-normal text-center">Iniciar Sesión</h1>
     </div>
+    <!--Form Email-->
     <div class="form-floating mb-4 text-center">
       <input  id="email"
               type="email"
@@ -14,6 +15,7 @@
               required>
       <label for="email">Correo electrónico</label>
     </div>
+    <!--Form Password-->
     <div class="form-floating mb-4" >
       <input  id="password"
               type="password"
@@ -24,9 +26,11 @@
               required>
       <label for="password">Contraseña</label>
     </div>
-    <div class="text-center" *ngIf="error">
-      <p class="error">No existe ningun usuario con estas credenciales</p>
+    <!--Text Error-->
+    <div class="text-center" *ngIf="loginError">
+      <p class="error-color">No existe ningun usuario con estas credenciales</p>
     </div>
+    <!--Buttons-->
     <div class="text-center">
       <button class="w-auto btn btn-lg btn-primary me-4" id="submit" type="submit">Iniciar Sesión</button>
       <button class="w-auto btn btn-lg btn-primary" id="register" type="button" [routerLink]="['sign-up']">Registrarse</button>

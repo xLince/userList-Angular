@@ -11,10 +11,9 @@
     </div>
     <fieldset>
       <div class="row g-3 mb-4" >
-
         <!--Form Name-->
         <div class="col-sm-6" [class.was-validated]="name.dirty || name.touched">
-          <label for="name" class="form-label text-white">Nombre<span class="req">*</span></label>
+          <label for="name" class="form-label text-white">Nombre<span class="require">*</span></label>
           <input  id="name"
                   type="name"
                   name="name"
@@ -25,10 +24,9 @@
             Un nombre válido es requerido.
           </div>
         </div>
-
         <!--Form Surname-->
         <div class="col-sm-6" [class.was-validated]="surname.dirty || surname.touched">
-          <label for="surname" class="form-label text-white">Apellido<span class="req">*</span></label>
+          <label for="surname" class="form-label text-white">Apellido<span class="require">*</span></label>
           <input  id="surname"
                   type="surname"
                   name="surname"
@@ -40,10 +38,9 @@
           </div>
         </div>
       </div>
-
       <!--Form Email-->
       <div class="mb-4" [class.was-validated]="email.dirty || email.touched">
-        <label for="email" class="form-label text-white">Correo electrónico<span class="req">*</span></label>
+        <label for="email" class="form-label text-white">Correo electrónico<span class="require">*</span></label>
         <input  id="email"
                 type="email"
                 name="email"
@@ -55,10 +52,9 @@
           Por favor entra un correo electrónico válido.
         </div>
       </div>
-
       <!--Form Password-->
       <div class="mb-4" [class.was-validated]="password.dirty || password.touched">
-        <label for="password" class="form-label text-white">Contraseña<span class="req">*</span></label>
+        <label for="password" class="form-label text-white">Contraseña<span class="require">*</span></label>
         <input  id="password"
                 type="password"
                 name="password"
@@ -69,12 +65,15 @@
           Una contraseña es requerida
         </div>
       </div>
-      <div class="text-center" *ngIf="error">
-        <p class="error">Ya existe un usuario con estas credenciales </p>
+      <!--Text Error-->
+      <div class="text-center" *ngIf="registerError">
+        <p class="error-color">Ya existe un usuario con estas credenciales </p>
       </div>
-      <div class="text-center" *ngIf="successful">
+      <!--Text Successful-->
+      <div class="text-center" *ngIf="registerSuccessful">
         <p class="correct">Se ha registrado el usuario correctamente </p>
       </div>
+      <!--Button-->
       <div class="text-center">
         <button class="w-100 btn btn-primary btn-lg mt-4" id="submit" type="submit" [disabled]="!userForm.form.valid">Registrarse</button>
       </div>

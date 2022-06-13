@@ -10,11 +10,9 @@ import {Observable} from "rxjs";
 })
 export class UserService {
 
-  private users: IUser[];
   private token: JwtTokenDto;
 
   constructor(private httpService: HttpClient) {
-    this.users = [];
     this.token= {
       accessToken:	"",
       refreshToken:	"",
@@ -22,23 +20,21 @@ export class UserService {
     }
   }
 
-
-  setToken(newToken:JwtTokenDto){
+  setToken(newToken:JwtTokenDto): void {
     this.token = newToken;
-    this.storeCurrentUser();
+    this.storeCurrentToken();
   }
 
-  storeCurrentUser(): void {
-
+  storeCurrentToken(): void {
     localStorage.setItem('currentUserToken', JSON.stringify(this.token));
   }
 
-  registerUser(user: IUser){
+  registerUser(user: IUser): Observable<Object> {
     return this.httpService.post('http://51.38.51.187:5050/api/v1/auth/sign-up', user);
   }
 
-  loginUser(loginUser:ILoginUser) {
-    return  this.httpService.post('http://51.38.51.187:5050/api/v1/auth/log-in', loginUser);
+  loginUser(loginUser:ILoginUser): Observable<JwtTokenDto> {
+    return  this.httpService.post<JwtTokenDto>('http://51.38.51.187:5050/api/v1/auth/log-in', loginUser);
   }
 
   logoutUser(): void {
@@ -49,14 +45,14 @@ export class UserService {
     return localStorage.getItem('currentUserToken') !== null;
   }
 
-  getCurrentUser():void {
+  getCurrentUser(): void {
     const data = localStorage.getItem('currentUserToken');
     if(data){
       this.token= JSON.parse(data);
     }
 
   }
-  obtainUsers(url:string) {
+  obtainUsers(url:string): Observable<{count:number, items:IUser[]}> {
     this.getCurrentUser();
     const headers = {
       'Content-Type': 'application/json',

@@ -1,7 +1,10 @@
 .arrow {
   font-size:25px;
 }
-
-.req {
+.require {
   color: red;
+}
+
+.correct {
+  color: green;
 }

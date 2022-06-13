@@ -11,12 +11,11 @@ export class UserLogoutComponent implements OnInit {
 
   constructor(private userService: UserService, private router:Router) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   logoutUser(): void {
     this.userService.logoutUser()
-    this.router.navigate(['/']);
+    this.router.navigate(['/']).then();
   }
 
 }
