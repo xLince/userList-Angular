@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UserService} from "../../user/user.service";
 import {ILoginUser} from "../../models/ILoginUser";
 import {JwtTokenDto} from "../../models/JwtTokenDto";
-import { Router} from "@angular/router";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-auth-login',

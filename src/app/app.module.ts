@@ -9,6 +9,7 @@ import { AuthLoginComponent } from 'src/app/auth/auth-login/auth-login.component
 import { AuthSignupComponent } from 'src/app/auth/auth-signup/auth-signup.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
+import { HeaderComponent } from './user/header/header.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {FormsModule} from "@angular/forms";
     UserListComponent,
     UserLogoutComponent,
     AuthLoginComponent,
-    AuthSignupComponent
+    AuthSignupComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

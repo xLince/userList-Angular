@@ -1,18 +1,18 @@
-<h1 class="text-center mt-3 mb-4 text-decoration-underline">Listado de Usuarios</h1>
+<app-header></app-header>
 <div class="container">
   <div class="card cardColor mb-2 border-dark" *ngFor="let user of userList | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize" >
     <div class="card-block row">
       <div class="card-body row align-items-center ">
         <div class="col ps-4">
-          <h6 class="card-subtitle text-muted subtitle">Name</h6>
+          <h6 class="card-subtitle text-muted subtitle">Nombre</h6>
           <p class="card-text text-white">{{user.name}}</p>
         </div>
         <div class="col">
-          <h6 class="card-subtitle text-muted subtitle">Surname</h6>
+          <h6 class="card-subtitle text-muted subtitle">Apellido/s</h6>
           <p class="card-text text-white">{{user.surname}}</p>
         </div>
         <div class="col">
-          <h6 class="card-subtitle text-muted subtitle ">E-mail</h6>
+          <h6 class="card-subtitle text-muted subtitle ">Correo electrónico</h6>
           <p class="card-text text-white">{{user.email}}</p>
         </div>
       </div>
@@ -20,5 +20,5 @@
   </div>
 </div>
 
-<ngb-pagination class="d-flex justify-content-center"
+<ngb-pagination class="d-flex justify-content-center pt-4"
                 [(page)]="page" [pageSize]="pageSize" [collectionSize]="totalUsers"></ngb-pagination>

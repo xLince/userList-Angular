@@ -1,1 +1,8 @@
-<p>user-logout works!</p>
+<div class="inside-container log-out flex justify-content-center align-items-center text-center">
+  <p class="mt-2">Estas seguro que quieres cerrar sesión?</p>
+  <div class="text-center mb-4">
+    <button class="w-auto btn btn-lg btn-outline-info me-4" id="cancel" type="button" [routerLink]="['/user']">Cancelar</button>
+    <button class="w-auto btn btn-lg btn-danger" id="logout" type="button" (click)="logoutUser()" >Cerrar Sesión</button>
+  </div>
+</div>
+
